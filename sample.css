@@ -1,0 +1,751 @@
+.test,.pest {
+  color: red;
+}
+
+.test.simultaneous {
+  color: blue;
+}
+
+/* BEGIN coach view and success request */
+.coach_access_view td {
+    text-align:center;
+    vertical-align:top;
+}
+
+.coach_access_view h2 {
+    color:#F06421;
+    font-size:36px;
+    margin-top:10px;
+    margin-bottom:0px;
+}
+
+.coach_access_view h3 {
+    color:#F06421;
+    font-size:20px;
+    padding:0px;
+    margin:0px;
+    text-shadow:none;
+    margin-bottom:40px;
+}
+
+.coach_access_view img {
+    margin-bottom:25px;
+}
+
+.coach_access_view p {
+    font-size:18px;
+}
+
+.coach_access_view button#request_coach_access.btn.btn-orange {
+    box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.25);
+}
+
+.coach_access_success {
+    border:1px solid #F06421;
+    margin:0px;
+    margin-left:3px;
+    border-radius:4px;
+    box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.25);
+    background:#f3f3f3;
+    text-align:center;
+}
+
+.coach_access_success h3 {
+    font-size:16px;
+    margin:0px;
+    padding:0px;
+}
+
+.coach_access_msg {
+    display:inline-block;
+    text-align:center;
+    width:400px;
+    padding:0px;
+    color:#F06421;
+    padding-bottom:10px;
+}
+/* END OF coach view and success request */
+
+#popup
+{
+ display:none;
+ position: fixed;
+ width:150px;
+ height: 30px;
+ top: 50%;
+ left: 45%;
+ background-color:#DEDFDE;
+ font-family:Verdana;
+ font-size:9pt;
+ border-radius:10px;
+ -webkit-border-radius:20px;
+ -moz-border-radius:20px;
+}
+#popupclose
+{
+ margin:35px 0 0 80px;
+ width:100px;
+}
+
+.profile-list-item {
+    position:relative;
+}
+
+.items .list-item-sport {padding-left:16px;}
+
+.non-confirmed-coach-list-label {
+    font-size:10px;
+    color:red;
+    position:absolute;
+    left:156px;
+    top:45px;
+    line-height: 8px;
+}
+
+.profile-header-wrapper .non-confirmed-coach-list-label {
+    left:225px;
+}
+
+/* basket stuff */
+
+section.breadcrumbs {
+    padding-left: 0;
+}
+
+
+.coach-invite {
+
+}
+
+.coach-invite tr td {
+    padding: 0 0 0 10px;
+    margin: 0;
+}
+
+.coach-invite tr td div {
+    padding-bottom: 10px;
+    margin: 0;
+}
+
+#invite-form-template form {
+    margin: 0;
+}
+
+.coach-invite-box {
+    /*    margin-top:140px;*/
+    border:1px solid rgb(240, 100, 33);
+    min-height:80px;
+    border-radius: 4px;
+    /*box-shadow: 4px 4px 7px rgba(0, 0, 0, 0.5); */
+    text-align:center;
+    width: 750px;
+
+    margin-bottom: 1em;
+}
+
+.coach-invite-box-header {
+    padding: 10px 0 10px 0;
+
+    min-height:20px;
+    font-family:'capital';
+    font-size:1.8em;
+    background:rgb(240, 100, 33);
+    color:white;
+    text-transform:uppercase;
+}
+
+
+/* new course blocks */
+
+.course-block-table {
+}
+
+.course-block-table td {
+    padding: 0;
+
+    /*border: 1px dashed #fff;*/
+}
+
+.course-unit-list-column {
+    font-family: "Myriad Pro", "Myriad Web", Helvetica, Calibri, sans-serif;
+    font-weight: bolder;
+    font-size: 12px !important;
+    color: #898989;
+    text-align: center;
+}
+
+.course-unit-list-item-multiday .course-unit-list-column {
+    font-family: "Helvetica Neue", Arial, "Lucida Grande", sans-serif;
+    font-weight: bold;
+    font-size: 13px !important;
+}
+
+.course-unit-list-multiday-slots-wrapper {
+    padding-top: 5px;
+    font-family: "Helvetica Neue", Arial, "Lucida Grande", sans-serif;
+    font-size: 13px !important;
+
+    line-height: 2;
+    color: #666667;
+}
+
+.course-unit-list-multiday-slots-wrapper .course-unit-list-column {
+    font-family: "Helvetica Neue", Arial, "Lucida Grande", sans-serif;
+    font-weight: bold;
+    font-size: 13px !important;
+}
+
+.course-unit-list-item-single .course-unit-list-column {
+    font-family: "Helvetica Neue", Arial, "Lucida Grande", sans-serif;
+    font-weight: bold;
+    font-size: 13px !important;
+}
+
+
+.course-unit-list-column .participants-amount-wrapper {
+    text-align: left;
+}
+
+.participants-amount-combo {
+    width: 50px;
+}
+
+/* slotcards in basket */
+
+.participants-amount-combo {
+    margin: 0;
+    padding: 0;
+
+    height: 25px;
+}
+
+.course-unit-list-column-basket {
+    vertical-align: middle !important;
+}
+
+.basket-slot-col-1, .basket-slot-col-3 { width: 50px; }
+.basket-slot-col-2 { width: 62px; }
+
+.participants-amount-wrapper .basket-slot-col {
+    display: inline-block;
+    padding-left: 3px;
+    position: relative;
+
+    vertical-align: middle;
+}
+
+.participants-amount-wrapper .basket-slot-col-2 {
+    color: #ff4500;
+
+    font-family: "Myriad Pro", "Myriad Web", "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
+    font-size: 16px !important;
+    font-weight: bold;
+
+    margin-top: 5px;
+
+    text-align: center;
+}
+
+.participants-amount-wrapper .basket-slot-col-3 {
+    width: 45px;
+    padding: 0;
+}
+
+.basket-slot-col-3 span {
+
+    display: block;
+
+    margin-left: 5px;
+    margin-top: -2px;
+}
+
+/********/
+
+.viewport #search-results {
+    float: none;
+}
+
+.viewport .filter-wrapper {
+    display: block;
+    width: 751px;
+
+}
+
+.viewport #search-form-wrapper {
+    margin-bottom: 0;
+}
+
+.viewport #filters-form {
+    margin-bottom: 0;
+    padding: 0;
+}
+
+.filters-box {
+    margin-top: -3px;
+    padding-top: 8px;
+    margin-bottom: 10px ;
+    border-left: 1px solid #b7b7b7;
+    border-right: 1px solid #b7b7b7;
+    border-bottom: 1px solid #b7b7b7;
+    border-radius: 3px;
+	background-color:#ebebeb;
+
+}
+
+.search-filters {
+}
+
+.filter-header, .filter-body {
+    border-bottom: 1px solid #b7b7b7;
+}
+
+.viewport .ui-slider .ui-slider-handle {
+    width: 13px;
+    height: 13px;
+    margin-top: 2px;
+}
+
+.filter-wrapper:last-child .filter-header, .filter-wrapper:last-child .filter-body:last-child {
+    border-bottom: none;
+}
+
+
+.filters-box .filter-wrapper {
+    margin: 0;
+    padding: 0;
+
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    -ms-box-shadow: none;
+    -o-box-shadow: none;
+    box-shadow: none;
+    display: table-row;
+}
+
+.search-filters .filter-header {
+    height: 50px;
+
+    width: 147px;
+    vertical-align: middle;
+    display: table-cell;
+
+    background: none;
+    font-weight: bolder;
+    color: #103052;
+    background-color: transparent !important;
+    background-image: none !important;
+
+    text-align: left;
+    padding-left: 21px;
+
+    font-family: "Myriad Pro", "Myriad Web", "Helvetica", "Arial", sans-serif;
+    font-size: 16px;
+
+}
+
+.search-filters .filter-body {
+    height: 50px;
+
+    /*width: 85%;*/
+    display: table-cell;
+
+    vertical-align: middle;
+
+    background-color: transparent;
+}
+
+.search-filters .check.filter-check {
+    /*padding: 8px 0 3px 5px !important;*/
+}
+
+.search-filters .filter_check {
+    padding: 5px 0 0 42px !important;
+
+}
+
+.search-filters .filter_check div{
+    vertical-align: middle;
+    float: left;
+    display: inline-block;
+    margin-right: 10px;
+    top: -10px;
+    position: relative;
+}
+
+
+.search-filters .filter_check label {
+}
+
+.search-filters .filter_check input[type="radio"] {
+    position: relative;
+    top: 15px;
+}
+
+
+.search-order-link {
+
+    font-family: Helvetica, Arial;
+
+    float: left;
+    display: block;
+    color: #fff;
+    font-size: 15px;
+    font-weight: bold;
+    height: 28px;
+    margin: 7px 18px 0 18px;
+}
+
+.search-order-link:hover {
+    color: #f06421;
+}
+
+.search_sb_act:before {
+    content:'\2193\00a0';
+}
+
+.search_sb_pas:before {
+    content:'\2191\00a0';
+}
+
+.search_sb_act, .search_sb_pas {
+    padding-top: 5px;
+    margin-top: 3px;
+}
+
+.slider-start-time-poz, .slider-search-poz {
+    width: 319px;
+    padding: 18px 10px 8px 13px;
+}
+
+.slider-start-time-poz .indicator {
+    display: block;
+    padding-top: 10px;
+    color: #14203a;
+    font-size: 14px;
+}
+
+.disabled_form_message {
+    color:grey;
+    opacity:0.5;
+}
+
+.gm-style {
+    position: relative;
+}
+
+.select_institute_inp {
+    color: #86929E !important;
+    padding: 0px 3px 0px 3px;
+    float:left;
+    width:100%;
+    border:1px solid;
+    height:22px;
+    border-radius:2px;
+    overflow:hidden;
+    background:url('../img/billing_card_type_select.png') right top no-repeat #f0f0f0;
+}
+
+.school_prof_form input {
+    background-color: #F0F0F0 !important;
+    border: 1px solid #6D6D6D !important;
+    border-radius: 2px !important;
+    color: #1D344D;
+    margin-bottom: 0 !important;
+    min-height: 14px !important;
+}
+
+.help_ico_inline {
+    background: url("../img/help-ico.png") no-repeat scroll left top rgba(0, 0, 0, 0);
+    margin: 3px 0 0 21px;
+    padding-left: 15px;
+}
+.search-breadcrumbs {
+    margin-top: 5px;
+
+    font-family:'HelveticaNeueW01-45Ligh',sans-serif;
+    font-size:1.7em;
+    font-weight: bold;
+    margin-bottom: 20px;
+
+}
+
+.back2search {
+    /*border: 1px solid #14203a;*/
+    /*border-radius: 5px;*/
+    padding: 3px;
+}
+
+
+#right-viewport {
+    padding: 56px 18px 0 0;
+    width:748px;
+}
+
+.course-padding-fix table td {
+    padding: 0 10px 0 0;
+}
+
+/*************************
+ *
+ *
+ *
+ *************************/
+
+#sandbox {
+    width: 751px;
+    margin: 0;
+}
+
+#sandbox ul {
+    display: inline-block;
+}
+
+#sandbox ul li {
+    padding: 5px;
+    display: inline-block;
+}
+
+#sandbox td {
+/*    border: 1px dashed lightcoral; */
+}
+
+#sandbox header {
+    font-weight: bold;
+
+    margin-bottom: 1em;
+}
+
+#sandbox section, #sandbox p {
+
+    line-height: 150%;
+    padding-left: 3em;
+}
+
+#sandbox .preview {
+    border: 1px solid yellowgreen;
+    background-color: rgba(128, 128, 128, 0.05133);
+    width: 100%;
+    padding: 25px;
+    margin-bottom: 1em;
+}
+
+
+#sandbox form {
+    width: 100%;
+}
+
+#sandbox form label
+{
+    width: 33%;
+    text-align: right;
+    display: inline-block;
+    margin-right: 3%;
+    vertical-align: middle;
+
+    height: 28px;
+    /*line-height: 45px;*/
+}
+
+#sandbox form input[type=text] {
+    width: 60%;
+    display: inline-block;
+
+}
+
+
+#sandbox form input[type=submit]{
+    display: block;
+    width: 100%;
+    padding: 10px;
+}
+
+
+
+.courses_block_new {
+    background-color: lightcoral;
+    height: 192px;
+    margin-bottom: 10px;
+
+    vertical-align: top;
+
+    background-color:#1d344d;
+    border: 1px solid #b0b0b0;
+
+    color: #ffffff;
+}
+
+
+.courses_block_new.courses_block_desabled,
+.courses_block_new.courses_block_desabled .sch_param_name {
+    color: black;
+}
+
+.course-new-wrapper {
+    width: 749px;
+}
+
+.courses_block_new .course_header,
+.courses_block_new .course_details,
+.courses_block_new .course_buttons {
+    display: inline-block;
+}
+
+.courses_block_new .course_avatar {
+    margin-top: -1px;
+    margin-left: -1px;
+
+    clear: left;
+}
+
+.courses_block_new .course_avatar .sch_img {
+    border-color: #b0b0b0;
+}
+
+.courses_block_new .course_details,
+.courses_block_new .course_header {
+    width: 440px;
+
+}
+
+.courses_block_new .course_buttons,
+.courses_block_new .course_price {
+    float: right;
+    width: 132px;
+}
+
+
+.courses_block_new .course_price {
+    position: relative;
+    top: -45px;
+}
+
+.courses_block_new .course_price div {
+    /*background-color: rgba(128,128,128, 0.5);*/
+    padding: 10px 10px 0 0;
+
+    font-family: "Museo Sans";
+
+    font-size: 24px;
+    font-weight: bolder;
+
+    color: #f2f2f2;
+    text-shadow: 1px 1px 0 #000;
+}
+
+.courses_block_new .course_price .icon-group-course,
+.courses_block_new .course_price .icon-user-course {
+    font-size: 20px;
+
+    position: relative;
+    top: 4px;
+    width: 20px;
+
+    text-align: center;
+}
+
+
+.courses_block_new .single-price-h {
+    height: 44px;
+}
+
+.courses_block_new .two-price-h {
+    height: 80px;
+}
+
+
+.courses_block_new .single-price-m {
+    position: relative;
+    top: -141px;
+}
+
+.courses_block_new .two-price-m {
+    position: relative;
+    top: -114px;
+}
+
+.courses_block_new .course_avatar {
+    float: left;
+    width: 176px;
+}
+
+.courses_block_new .course_details {
+    margin-top: -5px;
+
+    height: 154px;
+
+}
+
+.courses_block_new .course_details .column1 {
+    float: left;
+    width: 48%;
+
+}
+
+.courses_block_new .course_details .column2 {
+    width: 48%;
+    float: right;
+}
+
+.courses_block_new .atp_prof_block_c_name-fix {
+    left: -10px;
+    padding: 0 0 0 3px;
+    font-weight: 300;
+    line-height: 20px;
+}
+
+.courses_block_new .tbl_course_details {
+    vertical-align: middle;
+}
+
+.courses_block_new .tbl_course_details td,
+.courses_block_new .tbl_course_details th {
+    line-height: 20px;
+    padding-top: 4px;
+}
+
+.courses_block_new .sch_param_name {
+    line-height: 20px;
+}
+
+.head-logo-wrapper {
+  position:absolute;
+  top:15px;
+  right:15px;
+}
+
+.head-logo-wrapper img {
+  width:100px !important;
+  height:100px !important;
+}
+
+
+/*.courses_block_new .sch_param_name {*/
+    /*border: 1px dashed crimson;*/
+/*}*/
+
+/*.courses_block_new .tbl_course_details td,*/
+/*.courses_block_new .tbl_course_details th {*/
+    /*border: 1px dashed forestgreen;*/
+/*}*/
+
+/*.courses_block_new .course_header,
+.courses_block_new .course_avatar,
+.courses_block_new .course_price,
+.courses_block_new .course_details,
+.courses_block_new .course_buttons {
+    background-color: rgba(128,128,128,0.23333);
+}*/
+
+
+.coach-view-participants-btn {
+    margin-top: 3px !important;
+}
+
+#map_canvas1 {
+    height: 400px;
+    width: 1000px;
+}
+
+#map_canvas1 img {
+    max-width: none;
+}
