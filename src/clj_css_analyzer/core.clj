@@ -34,7 +34,7 @@
 (defn- css-map[css-data]
   (reduce
     #(let [v (peek %2)
-        k (pop %2)]
+        k (set (pop %2))]
       (assoc %1 k v))
       {} (parsed-css-to-vectors css-data)))
 
@@ -45,7 +45,8 @@
     (clojure.string/trim)
     (clojure.string/split #"\s+")
     (->> (map #(keyword (str "*." %))))
-      vec))
+      set ;vec
+      ))
 
 (defn- css-from-html-map[elements]
   (reduce (fn [res node]
@@ -61,6 +62,12 @@
 (def styles-from-css (css-map css-data))
 (def styles-from-html (css-from-html-map styled-els))
 
-;(pprint (keys styles-from-css))
-;(pprint (keys styles-from-html))
+(pprint (keys styles-from-css))
+(pprint (keys styles-from-html))
 
+;;;;;;;;;;;;;;;;;
+;; todo
+
+; diff
+;  + unify resulting hash-map keys' to a set, not vector — diff/intersect/...
+;
