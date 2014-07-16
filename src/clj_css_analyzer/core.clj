@@ -69,5 +69,9 @@
 ;; todo
 
 ; diff
-;  + unify resulting hash-map keys' to a set, not vector — diff/intersect/...
-;
+;  + unify resulting hash-map keys' to a set, not vector for diff/intersect/etc.
+;  - multiple css & html files
+;  - ui
+;    ? web
+;    ? local files
+;    ? curl
