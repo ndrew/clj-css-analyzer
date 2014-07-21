@@ -22,9 +22,9 @@
 
 (def styled-els (l/select html-data (l/attr? :class)))
 
-::
+;;
 ;; aggregate n analyze
-::
+;;
 
 ; css
 (defn- parsed-css-to-vectors[css-data]
@@ -65,9 +65,9 @@
 (pprint (keys styles-from-css))
 (pprint (keys styles-from-html))
 
+
 ;;;;;;;;;;;;;;;;;
 ;; todo
-
 ; diff
 ;  + unify resulting hash-map keys' to a set, not vector for diff/intersect/etc.
 ;  - multiple css & html files

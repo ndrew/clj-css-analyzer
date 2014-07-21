@@ -6,4 +6,5 @@
   :dependencies [[org.clojure/clojure "1.6.0"]
                  [net.sourceforge.cssparser/cssparser "0.9.7"]
                  [enlive "1.1.5"]
-                 [me.raynes/laser "2.0.0-SNAPSHOT"]])
+                 [me.raynes/laser "2.0.0-SNAPSHOT"]
+                 [ring "1.3.0"]])
