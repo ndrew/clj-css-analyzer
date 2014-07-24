@@ -13,28 +13,44 @@
 ;;
 ;; global state
 ;;
-(def mem-store (mem/memory-store))
+(defonce mem-store (mem/memory-store))
 
-
-
+;
 ; /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/
 
 
 
 (defn analyze![session-key url-map]
-  (println "foo")
-  (let [{css-urls :css
-         html-urls :html} url-map]
+    (.start (Thread.
+             (fn []
 
-          (println "session is: " session-key)
-          (print "css ")
-          (pprint css-urls)
-          (print "\nhtml ")
-          (pprint html-urls)
+               (def session (atom (.read-session mem-store session-key)))
 
-          ; do async processing here
+               (println @session)
 
-          ))
+               #_(while (not @session)
+
+                 (println "no session for " session-key ". Waiting.")
+
+                 (try
+                   (Thread/sleep 1000)
+                   (catch Exception e nil)
+                 )
+                 (reset! session (.read-session mem-store session-key))
+                 )
+
+                 (let [
+                       {css-urls :css
+                     html-urls :html} url-map]
+
+                      (println "lets dance! session-key: " session-key)
+                      ;(print "css ")
+                      ;(pprint css-urls)
+                      ;(print "\nhtml ")
+                      ;(pprint html-urls)
+
+                      )
+                ))))
 
 
 (defn- prepare-urls[url-map]
@@ -51,12 +67,17 @@
 
 
 (defn analyze-handler [{data :form-params session-data :session session-key :session/key}]
-  (if (:started session-data)
+  (if (:started (:status session-data))
      (status-handler {:session session-data :session/key session-key})
-     (let [status { :started (System/currentTimeMillis) }]
+     (let [status { :started (if (:started session-data)
+                                 (:started session-data)
+                                 (System/currentTimeMillis)) }]
              (->
                  (r/response (json/write-str session-key))
-                 (assoc :session (assoc session-data :status status))))))
+                 (merge {:session (assoc session-data :status status)
+                         :session/key :session/key})
+
+              ))))
 
 
 (defn handler [request]
@@ -93,10 +114,9 @@
   (fn [request]
       (let [response (app request)
             session-key (get-session-key request response)]
-
         (if (and (= "/analyze" (:uri request))
                  (not (:started (:status (:session request)))))
-          (analyze! session-key (prepare-urls (:params request))))
+            (analyze! session-key (prepare-urls (:params request))))
 
           response)))
 
