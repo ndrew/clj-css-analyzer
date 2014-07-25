@@ -13,7 +13,7 @@
 ;;
 ;; global state
 ;;
-(defonce mem-store (mem/memory-store))
+(def mem-store (mem/memory-store))
 
 ;
 ; /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/
@@ -23,10 +23,10 @@
 (defn analyze![session-key url-map]
     (.start (Thread.
              (fn []
+               (println "analyze " session-key)
+               ;(def session (atom (.read-session mem-store session-key)))
 
-               (def session (atom (.read-session mem-store session-key)))
-
-               (println @session)
+               ;(println @session)
 
                #_(while (not @session)
 
@@ -39,7 +39,7 @@
                  (reset! session (.read-session mem-store session-key))
                  )
 
-                 (let [
+                 #_(let [
                        {css-urls :css
                      html-urls :html} url-map]
 
@@ -60,36 +60,25 @@
 
 
 (defn status-handler [{session :session session-key :session/key}]
-  (-> (r/response (if (:status session)
-                      (json/write-str (:status session))
-                     "{}"))
+  (-> (r/response (json/write-str session))
       (assoc :session session)))
 
 
-(defn analyze-handler [{data :form-params session-data :session session-key :session/key}]
-  (if (:started (:status session-data))
-     (status-handler {:session session-data :session/key session-key})
-     (let [status { :started (if (:started session-data)
+(defn start-processing-handler [request]
+  (print "analyze: ")
+  (pprint (:session request))
+
+  (if (:started (:session request))
+     (status-handler request)
+     (let [session-data (:session request)
+           status { :started (if (:started session-data)
                                  (:started session-data)
                                  (System/currentTimeMillis)) }]
              (->
-                 (r/response (json/write-str session-key))
-                 (merge {:session (assoc session-data :status status)
-                         :session/key :session/key})
+                 (r/response (json/write-str :ok))
+                 (assoc :session (merge session-data status))
 
               ))))
-
-
-(defn handler [request]
-  (let [{uri :uri} request]
-    (->
-       (cond
-          (= "/" uri) (r/resource-response "index.html" {:root "public"})
-          (= "/analyze" uri) (analyze-handler request)
-          (= "/status" uri) (status-handler request)
-        :else       (r/response "404!"))
-        (r/content-type "text/html")
-     )))
 
 
 
@@ -114,19 +103,37 @@
   (fn [request]
       (let [response (app request)
             session-key (get-session-key request response)]
-        (if (and (= "/analyze" (:uri request))
-                 (not (:started (:status (:session request)))))
-            (analyze! session-key (prepare-urls (:params request))))
+
+        (println "WRAP: " (:uri request) " session-key" session-key)
+        (pprint (.read-session mem-store session-key))
+
+        ;(if (and (= "/analyze" (:uri request))
+        ;         (not (:started (:status (:session request)))))
+        ;    (analyze! session-key (prepare-urls (:params request))))
 
           response)))
+
+
+
+(defn handler [request]
+  (let [{uri :uri} request]
+    (->
+       (cond
+          (= "/" uri) (r/resource-response "index.html" {:root "public"})
+          (= "/analyze" uri) (start-processing-handler request)
+          (= "/status" uri) (status-handler request)
+        :else       (r/response "404!"))
+        (r/content-type "text/html")
+     )))
+
 
 
 (def app
   (-> handler
       ; add wrappers here
 
-      (wrap-async-analysis)
       (session/wrap-session {:store mem-store})
+      (wrap-async-analysis) ;; catch moment when session is not yet started
 
       ;(reload/wrap-reload)
       (params/wrap-params)
@@ -134,6 +141,7 @@
       (res/wrap-resource "public")
 
       ))
+
 
 
 (defn run[params]

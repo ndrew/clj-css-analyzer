@@ -224,7 +224,7 @@
             var resultsUi = tabView(d.createElement("section"), [
                 ["Foo",
                     function (el) {
-                        el.innerHTML = "Foo";
+                        el.innerHTML = "<pre>" + JSON.stringify(data) + "</pre>";
                     }
                 ],
                 ["Bar",
